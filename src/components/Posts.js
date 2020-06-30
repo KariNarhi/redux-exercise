@@ -8,7 +8,7 @@ class Posts extends Component {
     this.props.fetchPosts();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     }
@@ -16,7 +16,7 @@ class Posts extends Component {
 
   render() {
     const postItems = this.props.posts.map((post) => (
-      <div key={post.id}>
+      <div key={post.id + Math.random()}>
         <h3>{post.title}</h3>
         <p>{post.body}</p>
       </div>
