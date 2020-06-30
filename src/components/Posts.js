@@ -4,15 +4,26 @@ import { connect } from "react-redux";
 import { fetchPosts } from "../actions/postActions";
 
 class Posts extends Component {
+  state = {
+    newPost: this.props.newPost,
+  };
+
   componentDidMount() {
     this.props.fetchPosts();
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(props, state) {
+    if (props.newPost !== state.newPost) {
+      props.posts.unshift(props.newPost);
+    }
+    return null;
+  }
+
+  /* UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     }
-  }
+  } */
 
   render() {
     const postItems = this.props.posts.map((post) => (
