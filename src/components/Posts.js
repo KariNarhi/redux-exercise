@@ -8,6 +8,7 @@ class Posts extends Component {
     };
   }
 
+  // Fetch API data
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())

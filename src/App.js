@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+// Import components
 import Posts from "./components/Posts";
 import PostForm from "./components/Postform";
 
