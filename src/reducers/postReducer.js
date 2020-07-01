@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
       };
     case NEW_POST:
       state.items.unshift(action.payload);
-      console.log(state.items);
+      //console.log(state.items);
       return {
         ...state,
         item: action.payload,
