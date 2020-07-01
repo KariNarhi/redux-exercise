@@ -6,6 +6,8 @@ import { createPost } from "../actions/postActions";
 class PostForm extends Component {
   constructor(props) {
     super(props);
+
+    // "Draft" state for the new post
     this.state = {
       title: "",
       body: "",
@@ -15,7 +17,7 @@ class PostForm extends Component {
     this.onSubmit = this.onSubmit.bind(this); // Bind onSubmit event
   }
 
-  // Set state when changing input value
+  // Set draft state when changing input value
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -23,11 +25,13 @@ class PostForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
+    // Create new post object
     const post = {
       title: this.state.title,
       body: this.state.body,
     };
 
+    // Create new post from the object
     this.props.createPost(post);
   }
 
