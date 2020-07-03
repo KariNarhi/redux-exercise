@@ -13,10 +13,9 @@ export default function (state = initialState, action) {
         items: action.payload,
       };
     case NEW_POST:
-      state.items.unshift(action.payload);
-      //console.log(state.items);
       return {
         ...state,
+        items: [action.payload, ...state.items],
         item: action.payload,
       };
 
